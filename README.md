@@ -294,4 +294,3 @@ Each area has its own list of methods available
 
     Statistics GetFields(string fields);
     Properties GetByBuildId(string buildId);
-
