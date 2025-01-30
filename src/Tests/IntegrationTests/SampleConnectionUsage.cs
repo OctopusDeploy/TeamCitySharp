@@ -36,6 +36,15 @@ namespace TeamCitySharp.IntegrationTests
 
       Assert.That(m_client.Authenticate());
     }
+    
+    [Test]
+    public void it_supports_passing_custom_user_agent()
+    {
+      m_client.UseUserAgent("my-agent/1.0");
+      m_client.Connect(m_username,m_password);
+
+      Assert.That(m_client.Authenticate());
+    }
 
     [Test]
     public void it_will_throw_an_exception_for_an_unknown_user()

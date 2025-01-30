@@ -58,5 +58,6 @@ namespace TeamCitySharp.Connection
 
     void UseVersion(string version);
 
+    void UseUserAgent(string userAgent);
   }
 }

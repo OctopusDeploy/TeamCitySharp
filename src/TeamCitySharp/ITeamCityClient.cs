@@ -7,6 +7,7 @@ namespace TeamCitySharp
     void Connect(string userName, string password);
     void ConnectWithAccessToken(string token);
     void UseVersion(string version);
+    void UseUserAgent(string userAgent);
     void ConnectAsGuest();
     void DisableCache();
     void EnableCache();

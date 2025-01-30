@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Security.Authentication;
 using System.Text;
 using TeamCitySharp.DomainEntities;
@@ -15,6 +16,7 @@ namespace TeamCitySharp.Connection
     private readonly Credentials m_credentials;
     private bool m_useNoCache;
     private string m_version="";
+    private string m_userAgent;
     private readonly Func<HttpClient> m_httpClientFactory;
 
     public TeamCityCaller(string hostName, bool useSsl, Func<HttpClient> httpClientFactory)
@@ -23,6 +25,9 @@ namespace TeamCitySharp.Connection
         throw new ArgumentNullException("hostName");
 
       m_credentials = new Credentials {UseSSL = useSsl, HostName = hostName};
+
+      var version = typeof(TeamCityCaller).Assembly.GetName().Version;
+      m_userAgent = $"TeamCitySharp/{version}";
       m_httpClientFactory = httpClientFactory ?? (() => new HttpClient());
     }
 
@@ -34,6 +39,11 @@ namespace TeamCitySharp.Connection
     public void UseVersion(string version)
     {
       m_version = version;
+    }
+
+    public void UseUserAgent(string userAgent)
+    {
+      m_userAgent = userAgent;
     }
 
     public void EnableCache()
@@ -296,6 +306,7 @@ namespace TeamCitySharp.Connection
       var httpClient = m_httpClientFactory();
       httpClient.DefaultRequestHeaders.Accept
           .Add(new MediaTypeWithQualityHeaderValue(accept));
+      httpClient.DefaultRequestHeaders.Add("User-Agent", m_userAgent);
 
       if (m_useNoCache)
         httpClient.DefaultRequestHeaders.CacheControl = new CacheControlHeaderValue{NoCache = true};

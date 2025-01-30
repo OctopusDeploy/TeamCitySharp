@@ -41,6 +41,12 @@ namespace TeamCitySharp
     {
       m_caller.UseVersion(version);
     }
+    
+    public void UseUserAgent(string userAgent)
+    {
+      m_caller.UseUserAgent(userAgent);
+    }
+
     public void EnableCache()
     {
       m_caller.EnableCache();
