@@ -10,3 +10,7 @@ updates:
     schedule:
       interval: "daily"
     open-pull-requests-limit: 1
+    ignore:
+      # FluentAssertions v8 changes the licensing in a way that cost lots, only allow v7.x
+      - dependency-name: "FluentAssertions"
+        versions: [ ">=8.0.0" ] 

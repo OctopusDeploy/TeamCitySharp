@@ -18,4 +18,10 @@
   <ItemGroup>
     <PackageDownload Include="Octopus.OctoVersion.Tool" Version="[0.3.295]" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\.github\dependabot.yml">
+      <Link>.github\dependabot.yml</Link>
+    </Content>
+  </ItemGroup>
 </Project>
