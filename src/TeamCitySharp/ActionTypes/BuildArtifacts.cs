@@ -81,7 +81,7 @@ namespace TeamCitySharp.ActionTypes
         var artifact = string.Empty;
         if (nameNode != null)
           artifact = nameNode.Value;
-        if (extensionNode != null)
+        if (extensionNode != null && !string.IsNullOrWhiteSpace(extensionNode.Value))
           artifact += "." + extensionNode.Value;
         list.Add($"/repository/download/{m_buildConfigId}/{buildSpecification}/{artifact}");
       }
