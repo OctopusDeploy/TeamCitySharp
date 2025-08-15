@@ -11,10 +11,6 @@ Latest Version:
 For more information on TeamCity visit:
 http://www.jetbrains.com/teamcity
 
-## Releases
-
-Please find the release notes [here](https://github.com/Octopus.TeamCitySharp/releases)
-
 ## License
 
 MIT
@@ -150,3 +146,4 @@ Q: Why is there a bearer token in the mapping files?
 A: Some test validate "does it work with admin user", and "does it throw an exception with an invalid user". 
 Unfortunately, the only difference in these requests is the bearer token, so we need to have it in the mapping file.
 Note that the bearer token is for a local TeamCity instance, and has been revoked.
+
