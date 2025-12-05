@@ -40,15 +40,15 @@ namespace TeamCitySharp.ActionTypes
         };
 
       this.testee.TriggerServerInstanceBackup(backupOptions);
-
-      A.CallTo(() => this.teamCityCaller.StartBackup(string.Concat(
+      var urlPart = string.Concat(
         "/server/backup?fileName=",
         Filename,
         "&includeBuildLogs=" + includeBuildLogs,
         "&includeConfigs=" + includeConfigurations,
         "&includeDatabase=" + includeDatabase,
-        "&includePersonalChanges=" + includePersonalChanges)))
-       .MustHaveHappened();
+        "&includePersonalChanges=" + includePersonalChanges);
+      A.CallTo(() => this.teamCityCaller.StartBackup(urlPart))
+        .MustHaveHappened();
     }
 
     [Test]
