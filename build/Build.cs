@@ -28,7 +28,7 @@ class Build : NukeBuild
 #pragma warning restore CS0414
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")] readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
 
-    [OctoVersion(UpdateBuildNumber = true, BranchMember = nameof(BranchName), AutoDetectBranchMember = nameof(AutoDetectBranch), Framework = "net8.0")]
+    [OctoVersion(UpdateBuildNumber = true, BranchMember = nameof(BranchName), AutoDetectBranchMember = nameof(AutoDetectBranch), Framework = "net10.0")]
     readonly OctoVersionInfo OctoVersionInfo = null!; //this is set by nuke
 
     [Solution(GenerateProjects = true)]
