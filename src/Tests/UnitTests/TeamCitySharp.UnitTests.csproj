@@ -37,7 +37,7 @@
   <ItemGroup>
     <PackageReference Include="FakeItEasy" Version="8.3.0" />
     <!-- We lock FluentAssertions, as v8 changes the licensing in a way that cost lots -->
-    <PackageReference Include="FluentAssertions" Version="8.8.0" />
+    <PackageReference Include="FluentAssertions" Version="[7.1.0]" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     <PackageReference Include="NUnit" Version="4.4.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="5.2.0" />
