@@ -35,7 +35,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="FakeItEasy" Version="8.3.0" />
+    <PackageReference Include="FakeItEasy" Version="9.0.1" />
     <!-- We lock FluentAssertions, as v8 changes the licensing in a way that cost lots -->
     <PackageReference Include="FluentAssertions" Version="[7.2.0]" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
