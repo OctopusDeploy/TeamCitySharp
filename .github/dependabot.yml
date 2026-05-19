@@ -13,4 +13,6 @@ updates:
     ignore:
       # FluentAssertions v8 changes the licensing in a way that cost lots, only allow v7.x
       - dependency-name: "FluentAssertions"
-        versions: [ ">=8.0.0" ] 
+        versions: [ ">=8.0.0" ]
+    cooldown:
+      default-days: 3
