@@ -66,7 +66,7 @@
     ],
     "Body": {
       "Matcher": {
-        "Name": "JsonMatcher",
+        "Name": "JsonPartialMatcher",
         "Pattern": {
           "id": "TestingTeamCitySharp_vcsroot1_01",
           "vcs-root-id": null,
@@ -75,7 +75,6 @@
           "name": "Testing TeamCitySharp_vcsroot1",
           "version": null,
           "status": null,
-          "lastChecked": "0001-01-01T00:00:00",
           "lastVersion": null,
           "project": {
             "archived": false,
