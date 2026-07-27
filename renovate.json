@@ -8,5 +8,11 @@
   "rebaseWhen": "conflicted",
   "assigneesFromCodeOwners": true,
   "prConcurrentLimit": 1,
-  "minimumReleaseAge": "3 days"
+  "minimumReleaseAge": "3 days",
+  "packageRules": [
+    {
+      "matchPackageNames": ["FluentAssertions"],
+      "allowedVersions": "<8.0.0"
+    }
+  ]
 }
