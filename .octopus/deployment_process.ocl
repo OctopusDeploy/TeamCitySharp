@@ -1,0 +1,43 @@
+step "push" {
+    name = "Push"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.Script.ScriptBody = <<-EOT
+                # Build the path to nuget.exe
+                $nugetPackagePath = $OctopusParameters["Octopus.Action.Package[NuGet.CommandLine].ExtractedPath"]
+                $nugetExe = Join-Path -Path $nugetPackagePath -ChildPath "Tools\nuget.exe"
+                
+                # nuget push
+                . $nugetExe push "$($OctopusParameters["Octopus.Action.Package[Octopus.TeamCitySharp].PackageFileName"])" -source $FeedUrl -apikey $FeedApiKey -SkipDuplicate
+                
+                
+                
+                EOT
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+        worker_pool = "hosted-windows"
+
+        packages "NuGet.CommandLine" {
+            acquisition_location = "Server"
+            feed = "nuget"
+            package_id = "NuGet.CommandLine"
+            properties = {
+                Extract = "True"
+            }
+        }
+
+        packages "Octopus.TeamCitySharp" {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "Octopus.TeamCitySharp"
+            properties = {
+                Extract = "False"
+                Purpose = ""
+                SelectionMode = "immediate"
+            }
+        }
+    }
+}
