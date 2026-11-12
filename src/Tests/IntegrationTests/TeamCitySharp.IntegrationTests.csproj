@@ -40,6 +40,7 @@
     <ProjectReference Include="..\..\TeamCitySharp\TeamCitySharp.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.3.14" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.14" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.14" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="10.0.14" />
